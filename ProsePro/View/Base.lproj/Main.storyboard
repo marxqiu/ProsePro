@@ -8,17 +8,112 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Start View Controller-->
+        <!--Add-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="StartViewController" customModule="ProsePro" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sXY-Nc-Y8h">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="uMC-bL-HR5">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="770"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nIQ-04-rug">
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="243.33333333333334"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word, Phrase, Sentence" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQW-pJ-3R1">
+                                                        <rect key="frame" x="0.0" y="0.0" width="183.33333333333334" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="ptc-Co-iYQ"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="D78-mb-qgO">
+                                                        <rect key="frame" x="0.0" y="60.000000000000014" width="392" height="183.33333333333337"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                        <color key="textColor" systemColor="labelColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tDD-gW-eqo">
+                                                <rect key="frame" x="0.0" y="263.33333333333331" width="393" height="243.33333333333331"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Context" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txa-j5-N2l">
+                                                        <rect key="frame" x="0.0" y="0.0" width="59.666666666666664" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="qMj-wR-DNk"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="W9e-LT-wNp">
+                                                        <rect key="frame" x="0.0" y="60.000000000000014" width="392" height="183.33333333333337"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                        <color key="textColor" systemColor="labelColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="070-iV-NBY">
+                                                <rect key="frame" x="0.0" y="526.66666666666663" width="393" height="243.33333333333337"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="17f-lS-0ZV">
+                                                        <rect key="frame" x="0.0" y="0.0" width="37" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="26X-Wg-wAL"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9q2-F0-TD6">
+                                                        <rect key="frame" x="0.0" y="60.000000000000014" width="392" height="183.33333333333337"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                        <color key="textColor" systemColor="labelColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="393" id="0ke-hf-TCP"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="uMC-bL-HR5" secondAttribute="bottom" id="6kA-GH-VCJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="uMC-bL-HR5" secondAttribute="trailing" id="E86-aR-MeU"/>
+                                    <constraint firstItem="uMC-bL-HR5" firstAttribute="leading" secondItem="sXY-Nc-Y8h" secondAttribute="leading" id="bsD-bY-am1"/>
+                                    <constraint firstItem="uMC-bL-HR5" firstAttribute="top" secondItem="sXY-Nc-Y8h" secondAttribute="top" id="eXS-EZ-AKH"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="t5T-Hb-ZN8"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="UhE-aP-icl"/>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sXY-Nc-Y8h" secondAttribute="bottom" id="2Lt-CY-VOQ"/>
+                            <constraint firstAttribute="trailing" secondItem="sXY-Nc-Y8h" secondAttribute="trailing" id="8uu-Xd-9Nu"/>
+                            <constraint firstItem="sXY-Nc-Y8h" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-103" id="btZ-J0-Gg9"/>
+                            <constraint firstItem="sXY-Nc-Y8h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cvS-VM-oip"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="pfk-FJ-5ea">
+                    <navigationItem key="navigationItem" title="Add" id="pfk-FJ-5ea">
                         <barButtonItem key="leftBarButtonItem" title="Learn" id="q0L-Vj-dqZ">
                             <connections>
                                 <segue destination="raR-Bh-Vdn" kind="show" id="kCE-Rk-bj5"/>
@@ -35,7 +130,7 @@
             </objects>
             <point key="canvasLocation" x="1005.3435114503816" y="-27.464788732394368"/>
         </scene>
-        <!--Browse View Controller-->
+        <!--Browse-->
         <scene sceneID="nUk-SE-V9B">
             <objects>
                 <viewController id="JaX-Qh-IXL" customClass="BrowseViewController" customModule="ProsePro" customModuleProvider="target" sceneMemberID="viewController">
@@ -45,13 +140,13 @@
                         <viewLayoutGuide key="safeArea" id="FIu-VE-bAq"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Icq-d4-B1h"/>
+                    <navigationItem key="navigationItem" title="Browse" id="Icq-d4-B1h"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2tB-hS-n3g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2269.4656488549617" y="362.67605633802816"/>
+            <point key="canvasLocation" x="2205" y="382"/>
         </scene>
-        <!--Learn View Controller-->
+        <!--Learn-->
         <scene sceneID="y8B-sw-nZy">
             <objects>
                 <viewController id="raR-Bh-Vdn" customClass="LearnViewController" customModule="ProsePro" customModuleProvider="target" sceneMemberID="viewController">
@@ -61,7 +156,7 @@
                         <viewLayoutGuide key="safeArea" id="Q6B-Tu-gEW"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                     </view>
-                    <navigationItem key="navigationItem" id="HPS-pk-QA1"/>
+                    <navigationItem key="navigationItem" title="Learn" id="HPS-pk-QA1"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qlZ-p3-a8a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -87,6 +182,12 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
