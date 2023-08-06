@@ -16,6 +16,11 @@
 		E411DD042A7C988500529F4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E411DD022A7C988500529F4D /* LaunchScreen.storyboard */; };
 		E411DD0E2A7CA87A00529F4D /* LearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411DD0D2A7CA87A00529F4D /* LearnViewController.swift */; };
 		E411DD102A7CA92500529F4D /* BrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411DD0F2A7CA92500529F4D /* BrowseViewController.swift */; };
+		E49EE6EC2A7F3CE1002F83D3 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = E49EE6EB2A7F3CE1002F83D3 /* Realm */; };
+		E49EE6EE2A7F3CE1002F83D3 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E49EE6ED2A7F3CE1002F83D3 /* RealmSwift */; };
+		E49EE6F02A7F3D86002F83D3 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49EE6EF2A7F3D86002F83D3 /* Card.swift */; };
+		E49EE6F32A7F47E9002F83D3 /* TwoColumnCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49EE6F22A7F47E9002F83D3 /* TwoColumnCell.swift */; };
+		E49EE6F52A7F4EAF002F83D3 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49EE6F42A7F4EAF002F83D3 /* EditViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +35,9 @@
 		E411DD052A7C988500529F4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E411DD0D2A7CA87A00529F4D /* LearnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnViewController.swift; sourceTree = "<group>"; };
 		E411DD0F2A7CA92500529F4D /* BrowseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseViewController.swift; sourceTree = "<group>"; };
+		E49EE6EF2A7F3D86002F83D3 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		E49EE6F22A7F47E9002F83D3 /* TwoColumnCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoColumnCell.swift; sourceTree = "<group>"; };
+		E49EE6F42A7F4EAF002F83D3 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +45,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E49EE6EE2A7F3CE1002F83D3 /* RealmSwift in Frameworks */,
+				E49EE6EC2A7F3CE1002F83D3 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +80,7 @@
 				E411DD022A7C988500529F4D /* LaunchScreen.storyboard */,
 				E411DD052A7C988500529F4D /* Info.plist */,
 				E411DCFD2A7C988400529F4D /* ProsePro.xcdatamodeld */,
+				E49EE6F12A7F3D8B002F83D3 /* Model */,
 			);
 			path = ProsePro;
 			sourceTree = "<group>";
@@ -78,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				E411DCFA2A7C988400529F4D /* Main.storyboard */,
+				E49EE6F22A7F47E9002F83D3 /* TwoColumnCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -88,8 +100,17 @@
 				E411DCF82A7C988400529F4D /* StartViewController.swift */,
 				E411DD0D2A7CA87A00529F4D /* LearnViewController.swift */,
 				E411DD0F2A7CA92500529F4D /* BrowseViewController.swift */,
+				E49EE6F42A7F4EAF002F83D3 /* EditViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		E49EE6F12A7F3D8B002F83D3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E49EE6EF2A7F3D86002F83D3 /* Card.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -108,6 +129,10 @@
 			dependencies = (
 			);
 			name = ProsePro;
+			packageProductDependencies = (
+				E49EE6EB2A7F3CE1002F83D3 /* Realm */,
+				E49EE6ED2A7F3CE1002F83D3 /* RealmSwift */,
+			);
 			productName = ProsePro;
 			productReference = E411DCF12A7C988400529F4D /* ProsePro.app */;
 			productType = "com.apple.product-type.application";
@@ -136,6 +161,9 @@
 				Base,
 			);
 			mainGroup = E411DCE82A7C988400529F4D;
+			packageReferences = (
+				E49EE6EA2A7F3CE1002F83D3 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = E411DCF22A7C988400529F4D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -165,10 +193,13 @@
 			files = (
 				E411DD102A7CA92500529F4D /* BrowseViewController.swift in Sources */,
 				E411DD0E2A7CA87A00529F4D /* LearnViewController.swift in Sources */,
+				E49EE6F02A7F3D86002F83D3 /* Card.swift in Sources */,
 				E411DCF92A7C988400529F4D /* StartViewController.swift in Sources */,
 				E411DCF52A7C988400529F4D /* AppDelegate.swift in Sources */,
 				E411DCF72A7C988400529F4D /* SceneDelegate.swift in Sources */,
+				E49EE6F32A7F47E9002F83D3 /* TwoColumnCell.swift in Sources */,
 				E411DCFF2A7C988400529F4D /* ProsePro.xcdatamodeld in Sources */,
+				E49EE6F52A7F4EAF002F83D3 /* EditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +417,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E49EE6EA2A7F3CE1002F83D3 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.42.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E49EE6EB2A7F3CE1002F83D3 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E49EE6EA2A7F3CE1002F83D3 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		E49EE6ED2A7F3CE1002F83D3 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E49EE6EA2A7F3CE1002F83D3 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		E411DCFD2A7C988400529F4D /* ProsePro.xcdatamodeld */ = {
