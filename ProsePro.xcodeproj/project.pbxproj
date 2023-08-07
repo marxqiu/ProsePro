@@ -25,6 +25,7 @@
 		E49EE6F02A7F3D86002F83D3 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49EE6EF2A7F3D86002F83D3 /* Card.swift */; };
 		E49EE6F32A7F47E9002F83D3 /* TwoColumnCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49EE6F22A7F47E9002F83D3 /* TwoColumnCell.swift */; };
 		E49EE6F52A7F4EAF002F83D3 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49EE6F42A7F4EAF002F83D3 /* EditViewController.swift */; };
+		E4DA4BDC2A80AFEF00390D66 /* CardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA4BDB2A80AFEF00390D66 /* CardManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		E49EE6EF2A7F3D86002F83D3 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		E49EE6F22A7F47E9002F83D3 /* TwoColumnCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoColumnCell.swift; sourceTree = "<group>"; };
 		E49EE6F42A7F4EAF002F83D3 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		E4DA4BDB2A80AFEF00390D66 /* CardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				E49EE6EF2A7F3D86002F83D3 /* Card.swift */,
 				E47527432A7F73D100FF5716 /* ChatGPT.swift */,
 				E47527472A7F759800FF5716 /* Config.swift */,
+				E4DA4BDB2A80AFEF00390D66 /* CardManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 				E49EE6F02A7F3D86002F83D3 /* Card.swift in Sources */,
 				E411DCF92A7C988400529F4D /* StartViewController.swift in Sources */,
 				E47527482A7F759800FF5716 /* Config.swift in Sources */,
+				E4DA4BDC2A80AFEF00390D66 /* CardManager.swift in Sources */,
 				E411DCF52A7C988400529F4D /* AppDelegate.swift in Sources */,
 				E411DCF72A7C988400529F4D /* SceneDelegate.swift in Sources */,
 				E49EE6F32A7F47E9002F83D3 /* TwoColumnCell.swift in Sources */,

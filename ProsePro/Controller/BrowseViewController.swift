@@ -16,6 +16,8 @@ class BrowseViewController: UITableViewController {
     var cardArray : Results<Card>?
     
     var isEditingMode = false
+    
+    let cardManager = CardManager()
 
     @IBOutlet var selectionButton: UIBarButtonItem!
     
@@ -31,6 +33,8 @@ class BrowseViewController: UITableViewController {
         
         tableView.allowsSelectionDuringEditing = true
         tableView.allowsMultipleSelectionDuringEditing = true
+        
+        
 
         
         loadCard()
@@ -86,14 +90,43 @@ class BrowseViewController: UITableViewController {
             
             navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Select All", style: .plain, target: self, action: #selector(didTapSelectAll))
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(didTapSelect))
+            
+            self.navigationController?.setToolbarHidden(false, animated: false)
+            let deleteButton = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(didTapDelete))
+            let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+            self.toolbarItems = [flexibleSpace, deleteButton]
+
+
         } else {
             navigationItem.leftBarButtonItem = nil
             let selectImage = UIImage(systemName: "checkmark.circle")
             navigationItem.rightBarButtonItem = UIBarButtonItem(image: selectImage, style: .plain, target: self, action: #selector(didTapSelect))
             navigationItem.title = "Browse"
+            self.navigationController?.setToolbarHidden(true, animated: false)
         }
         
         
+    }
+    
+    @objc func didTapDelete() {
+        if let selectedIndexPaths = tableView.indexPathsForSelectedRows {
+            var cardsToDelete = [Card]()
+            for indexPath in selectedIndexPaths {
+                if let card = cardArray?[indexPath.row] {
+                    cardsToDelete.append(card)
+                }
+            }
+            
+            do {
+                try cardManager.deleteCards(cardsToDelete)
+            } catch {
+                print("Error deleting cards, \(error)")
+                // Ideally, show an error message to the user or handle the error appropriately
+            }
+            
+            tableView.reloadData()
+            updateNavBar()
+        }
     }
     
     @objc func didTapSelectAll() {
