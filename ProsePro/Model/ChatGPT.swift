@@ -17,9 +17,9 @@ class ChatGPT {
         openAI = OpenAI(configuration: configuration)
     }
     
-    func chat(_ front: String, in context: String, with instruction: String) async -> ChatResult? {
+    func chat(with instruction: String) async -> ChatResult? {
         //https://snackprompt.com/prompt/talk-to-an-english-teacher-who-will-help-you-succeed-in-the-proficiency-test
-        let query = ChatQuery(model: .gpt3_5Turbo, messages: [.init(role: .system, content: "You are an experienced and communicative teacher with extensive knowledge and outstanding performance in various English language proficiency exams. The objective is to enhance my conversational skills, expand vocabulary complexity, and improve fluency."), .init(role: .user, content: "I am learning \(front) now and and I want to command its meaning in \(context). \(instruction)" )], temperature: 0.98)
+        let query = ChatQuery(model: .gpt3_5Turbo, messages: [.init(role: .system, content: "You are an experienced and communicative teacher with extensive knowledge and outstanding performance in various English language proficiency exams. The objective is to enhance my conversational skills, expand vocabulary complexity, and improve fluency."), .init(role: .user, content: instruction )], temperature: 0.98)
         do {
             let result = try await openAI.chats(query: query)
             return result
@@ -34,8 +34,19 @@ class ChatGPT {
     
     
     func generateRecallTask(_ front: String, in context: String) async -> String?{
-        let instruction: String = "Use it in a COMPLETELY DIFFERENT context in about 30 words"
-        let chatResult = await self.chat(front, in : context, with: instruction)
+        let instruction: String = "I am learning \(front) now and and I want to command its meaning in \(context). Use it in a COMPLETELY DIFFERENT context in about 30 words"
+        let chatResult = await self.chat(with: instruction)
+        
+        if let chatResult = chatResult {
+            return chatResult.choices[0].message.content
+        }
+        
+        return nil
+    }
+    
+    func generateWritingTask(_ front: String, in context: String) async -> String?{
+        let instruction: String = "I am learning \(front) now and and I want to command its meaning in \(context). Use it in a COMPLETELY DIFFERENT context in about 30 words. Use it in a COMPLETELY DIFFERENT context in about 30 words"
+        let chatResult = await self.chat(with: instruction)
         
         if let chatResult = chatResult {
             return chatResult.choices[0].message.content

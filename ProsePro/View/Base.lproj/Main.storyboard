@@ -476,6 +476,9 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="34.333333333333336"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="tinted" title="Next"/>
+                                                <connections>
+                                                    <action selector="nextButtonPressed:" destination="PCs-mt-PdE" eventType="touchUpInside" id="SBF-2B-mT2"/>
+                                                </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3H1-HF-UQp">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="34.333333333333336"/>
@@ -535,6 +538,7 @@
                         <outlet property="nextButton" destination="QVG-5o-KZ9" id="ksI-00-mXX"/>
                         <outlet property="noteLabel" destination="kYB-Ot-XE6" id="jC0-WU-Dcj"/>
                         <outlet property="noteTextField" destination="QR9-d7-yuE" id="mcP-Ic-6VL"/>
+                        <outlet property="numLeftLabel" destination="xGA-3e-FjJ" id="EQC-On-Sy8"/>
                         <outlet property="numLeftView" destination="3H1-HF-UQp" id="X31-Sk-qwI"/>
                         <outlet property="separatorLine" destination="kxq-YM-s6g" id="V6U-ua-kMD"/>
                     </connections>

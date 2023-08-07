@@ -14,13 +14,13 @@ class LearnViewController: UIViewController {
     let chatGPT = ChatGPT()
     let realm = try! Realm()
     
-    var isTapped = false
+    var isTapped = true
     
     var shuffledIndices : [Int]?
     
-    var cardArray : Results<Card>? 
+    var cardArray : Results<Card>?
     
-
+    let cardManager = CardManager()
     
     var index = 0
     
@@ -34,45 +34,27 @@ class LearnViewController: UIViewController {
     @IBOutlet var numLeftView: UIView!
     @IBOutlet var nextButton: UIButton!
     
+    @IBOutlet var numLeftLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadCard()
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(screenTapped))
-            self.view.addGestureRecognizer(tapGesture)
+        self.view.addGestureRecognizer(tapGesture)
         
+       
         
+        shuffledIndices = Array(0..<cardArray!.count).shuffled()
         
-        cardArray = realm.objects(Card.self)
-        shuffledIndices = Array(1..<cardArray!.count).shuffled()
+        nextCard()
         
-        separatorLine.isHidden = true
-        contextTextField.isHidden = true
-        noteTextField.isHidden = true
-        noteLabel.isHidden = true
-        contextLabel.isHidden = true
-        nextButton.isHidden = true
-        
-        
-//        Task.init {
-//            let gptResult = await chatGPT.learnToRecall(cardArray![index].front, in: cardArray![index].context)
-//            gptTextField.text = gptResult
-//            contextTextField.text = cardArray![index].context
-//            noteTextField.text = cardArray![index].note
-//        }
-        
-        
-        
-        
-
-        
-        
-
         
         
     }
     
     @objc func screenTapped() {
-        
         if !isTapped {
             separatorLine.isHidden = false
             contextTextField.isHidden = false
@@ -80,16 +62,59 @@ class LearnViewController: UIViewController {
             noteLabel.isHidden = false
             contextLabel.isHidden = false
             
-            numLeftView.isHidden = !numLeftView.isHidden
-            nextButton.isHidden = !nextButton.isHidden
+            
+            nextButton.isHidden = false
+            numLeftView.isHidden = true
+            
             
             isTapped = !isTapped
         }
         
     }
     
-
-
+    @IBAction func nextButtonPressed(_ sender: UIButton) {
+        nextCard()
+    }
+    
+    func nextCard(){
+        
+        if let shuffledIndices = shuffledIndices {
+            // If the index is equal to the count, then show the congratulation message
+            if index == shuffledIndices.count {
+                // You can either show a congrats view or push/present a new view controller here
+                // The following is an example of presenting a simple alert
+                let alertController = UIAlertController(title: "Congratulations!", message: "You have completed all your flashcards.", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: { _ in
+                    self.navigationController?.popViewController(animated: true)
+                }))
+                self.present(alertController, animated: true, completion: nil)
+                return
+            }
+            
+            separatorLine.isHidden = true
+            contextTextField.isHidden = true
+            noteTextField.isHidden = true
+            noteLabel.isHidden = true
+            contextLabel.isHidden = true
+            nextButton.isHidden = true
+            numLeftView.isHidden = false
+            
+            gptTextField.text = cardArray![shuffledIndices[index]].recallTask
+            contextTextField.text = cardArray![shuffledIndices[index]].context
+            noteTextField.text = cardArray![shuffledIndices[index]].note
+            numLeftLabel.text = "\(index+1)/\(shuffledIndices.count)"
+        }
+        
+        index += 1
+        isTapped = !isTapped
+        
+    }
+    
+    func loadCard() {
+        
+        cardArray = cardManager.loadCards()
+        
+    }
     /*
     // MARK: - Navigation
 

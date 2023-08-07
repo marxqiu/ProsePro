@@ -11,7 +11,7 @@ import RealmSwift
 
 class StartViewController: UIViewController {
     
-    let cardManager = CardManager()
+    
 
     @IBOutlet var frontTextField: UITextView!
     
@@ -26,15 +26,22 @@ class StartViewController: UIViewController {
     }
 
     @IBAction func addButtonPressed(_ sender: UIButton) {
+        let frontText = frontTextField.text
+        let contextText = contextTextField.text
+        let noteText = noteTextField.text
+        
         Task {
-            do {
-                try await self.cardManager.addCard(frontTextField.text, contextTextField.text, noteTextField.text)
-                refresh()
-            } catch {
-                print("Error adding new card, \(error)")
+            let cardManager = CardManager()
+            if let frontText = frontText, let contextText = contextText, let noteText = noteText {
+                await cardManager.addCard(frontText, contextText, noteText)
             }
+            
         }
+
+        // Refresh UI immediately after addButtonPressed is called
+        self.refresh()
     }
+
 
 
 

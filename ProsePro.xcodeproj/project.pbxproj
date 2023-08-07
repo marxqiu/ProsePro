@@ -18,7 +18,6 @@
 		E411DD102A7CA92500529F4D /* BrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411DD0F2A7CA92500529F4D /* BrowseViewController.swift */; };
 		E47527422A7F6ECC00FF5716 /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = E47527412A7F6ECC00FF5716 /* OpenAI */; };
 		E47527442A7F73D100FF5716 /* ChatGPT.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47527432A7F73D100FF5716 /* ChatGPT.swift */; };
-		E47527462A7F755B00FF5716 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = E47527452A7F755B00FF5716 /* Config.plist */; };
 		E47527482A7F759800FF5716 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47527472A7F759800FF5716 /* Config.swift */; };
 		E49EE6EC2A7F3CE1002F83D3 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = E49EE6EB2A7F3CE1002F83D3 /* Realm */; };
 		E49EE6EE2A7F3CE1002F83D3 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E49EE6ED2A7F3CE1002F83D3 /* RealmSwift */; };
@@ -26,6 +25,7 @@
 		E49EE6F32A7F47E9002F83D3 /* TwoColumnCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49EE6F22A7F47E9002F83D3 /* TwoColumnCell.swift */; };
 		E49EE6F52A7F4EAF002F83D3 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49EE6F42A7F4EAF002F83D3 /* EditViewController.swift */; };
 		E4DA4BDC2A80AFEF00390D66 /* CardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA4BDB2A80AFEF00390D66 /* CardManager.swift */; };
+		E4DA4BDE2A80E46E00390D66 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4DA4BDD2A80E46E00390D66 /* Config.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,12 +41,12 @@
 		E411DD0D2A7CA87A00529F4D /* LearnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnViewController.swift; sourceTree = "<group>"; };
 		E411DD0F2A7CA92500529F4D /* BrowseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseViewController.swift; sourceTree = "<group>"; };
 		E47527432A7F73D100FF5716 /* ChatGPT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPT.swift; sourceTree = "<group>"; };
-		E47527452A7F755B00FF5716 /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		E47527472A7F759800FF5716 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		E49EE6EF2A7F3D86002F83D3 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		E49EE6F22A7F47E9002F83D3 /* TwoColumnCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoColumnCell.swift; sourceTree = "<group>"; };
 		E49EE6F42A7F4EAF002F83D3 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		E4DA4BDB2A80AFEF00390D66 /* CardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardManager.swift; sourceTree = "<group>"; };
+		E4DA4BDD2A80E46E00390D66 /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +91,7 @@
 				E411DD052A7C988500529F4D /* Info.plist */,
 				E411DCFD2A7C988400529F4D /* ProsePro.xcdatamodeld */,
 				E49EE6F12A7F3D8B002F83D3 /* Model */,
-				E47527452A7F755B00FF5716 /* Config.plist */,
+				E4DA4BDD2A80E46E00390D66 /* Config.plist */,
 			);
 			path = ProsePro;
 			sourceTree = "<group>";
@@ -194,7 +194,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E47527462A7F755B00FF5716 /* Config.plist in Resources */,
+				E4DA4BDE2A80E46E00390D66 /* Config.plist in Resources */,
 				E411DD042A7C988500529F4D /* LaunchScreen.storyboard in Resources */,
 				E411DD012A7C988500529F4D /* Assets.xcassets in Resources */,
 				E411DCFC2A7C988400529F4D /* Main.storyboard in Resources */,
@@ -379,9 +379,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.marxqiu.ProsePro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -407,9 +409,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.marxqiu.ProsePro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

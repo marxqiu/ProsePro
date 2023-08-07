@@ -23,25 +23,35 @@ class CardManager {
             realm.delete(cards)
         }
     }
-
-    func addCard(_ front: String, _ context: String, _ note: String) async throws {
+    
+    @MainActor
+    func loadRecallTaskInBackground(@ThreadSafe card: Card?, front: String, context: String) async {
+        if let recallTask = await chatGPT.generateRecallTask(front, in: context) {
+            let realm = try! await Realm()
+            try! realm.write {
+                card?.recallTask = recallTask
+            }
+        }
+        print("finish recall")
+        
+    }
+    
+    @MainActor
+    func addCard(_ front: String, _ context: String, _ note: String) async {
+        let realm = try! await Realm()
         let newCard = Card(front: front, context: context, note: note)
             
         // Generate the recallTask using ChatGPT and add it to the newCard
-        if let recallTask = await chatGPT.generateRecallTask(front, in: context) {
-            newCard.recallTask = recallTask
+       
+        try! realm.write {
+            realm.add(newCard)
         }
-
-        DispatchQueue.main.async {
-            do {
-                try self.realm.write {
-                    self.realm.add(newCard)
-                }
-            } catch {
-                print("Failed to write to Realm: \(error)")
-            }
-        }
+        
+        await loadRecallTaskInBackground(card: newCard, front: front, context: context)
+        
     }
+    
+    
 
     
     func editCard(_ selectedCard: Card, _ front: String, _ context: String, _ note: String) throws {
