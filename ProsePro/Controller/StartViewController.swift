@@ -7,7 +7,7 @@
 
 import UIKit
 import RealmSwift
-
+import CommonMarkAttributedString
 
 class StartViewController: UIViewController {
     
@@ -21,6 +21,7 @@ class StartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
         
         
     }

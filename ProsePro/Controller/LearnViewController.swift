@@ -7,7 +7,7 @@
 
 import UIKit
 import RealmSwift
-
+import CommonMarkAttributedString
 
 class LearnViewController: UIViewController {
     
@@ -99,7 +99,19 @@ class LearnViewController: UIViewController {
             nextButton.isHidden = true
             numLeftView.isHidden = false
             
-            gptTextField.text = cardArray![shuffledIndices[index]].recallTask
+            
+            do {
+                let commonmark = cardArray![shuffledIndices[index]].recallTask
+                let attributes: [NSAttributedString.Key: Any] = [
+                    .font: UIFont.systemFont(ofSize: 14.0)
+                ]
+
+                let attributedString = try NSAttributedString(commonmark: commonmark, attributes: attributes)
+                gptTextField.attributedText = attributedString
+            } catch {
+                print("Failed to convert commonmark to attributed string: \(error)")
+            }
+            
             contextTextField.text = cardArray![shuffledIndices[index]].context
             noteTextField.text = cardArray![shuffledIndices[index]].note
             numLeftLabel.text = "\(index+1)/\(shuffledIndices.count)"

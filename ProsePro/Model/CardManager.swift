@@ -27,6 +27,7 @@ class CardManager {
     @MainActor
     func loadRecallTaskInBackground(@ThreadSafe card: Card?, front: String, context: String) async {
         if let recallTask = await chatGPT.generateRecallTask(front, in: context) {
+            print(recallTask)
             let realm = try! await Realm()
             try! realm.write {
                 card?.recallTask = recallTask

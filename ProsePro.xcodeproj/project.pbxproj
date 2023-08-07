@@ -16,6 +16,7 @@
 		E411DD042A7C988500529F4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E411DD022A7C988500529F4D /* LaunchScreen.storyboard */; };
 		E411DD0E2A7CA87A00529F4D /* LearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411DD0D2A7CA87A00529F4D /* LearnViewController.swift */; };
 		E411DD102A7CA92500529F4D /* BrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411DD0F2A7CA92500529F4D /* BrowseViewController.swift */; };
+		E42474132A81118800AF9203 /* CommonMarkAttributedString in Frameworks */ = {isa = PBXBuildFile; productRef = E42474122A81118800AF9203 /* CommonMarkAttributedString */; };
 		E47527422A7F6ECC00FF5716 /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = E47527412A7F6ECC00FF5716 /* OpenAI */; };
 		E47527442A7F73D100FF5716 /* ChatGPT.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47527432A7F73D100FF5716 /* ChatGPT.swift */; };
 		E47527482A7F759800FF5716 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47527472A7F759800FF5716 /* Config.swift */; };
@@ -55,6 +56,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E49EE6EE2A7F3CE1002F83D3 /* RealmSwift in Frameworks */,
+				E42474132A81118800AF9203 /* CommonMarkAttributedString in Frameworks */,
 				E47527422A7F6ECC00FF5716 /* OpenAI in Frameworks */,
 				E49EE6EC2A7F3CE1002F83D3 /* Realm in Frameworks */,
 			);
@@ -147,6 +149,7 @@
 				E49EE6EB2A7F3CE1002F83D3 /* Realm */,
 				E49EE6ED2A7F3CE1002F83D3 /* RealmSwift */,
 				E47527412A7F6ECC00FF5716 /* OpenAI */,
+				E42474122A81118800AF9203 /* CommonMarkAttributedString */,
 			);
 			productName = ProsePro;
 			productReference = E411DCF12A7C988400529F4D /* ProsePro.app */;
@@ -179,6 +182,7 @@
 			packageReferences = (
 				E49EE6EA2A7F3CE1002F83D3 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				E47527402A7F6ECC00FF5716 /* XCRemoteSwiftPackageReference "OpenAI" */,
+				E42474112A81118800AF9203 /* XCRemoteSwiftPackageReference "CommonMarkAttributedString" */,
 			);
 			productRefGroup = E411DCF22A7C988400529F4D /* Products */;
 			projectDirPath = "";
@@ -443,6 +447,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E42474112A81118800AF9203 /* XCRemoteSwiftPackageReference "CommonMarkAttributedString" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mattt/CommonMarkAttributedString";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.0;
+			};
+		};
 		E47527402A7F6ECC00FF5716 /* XCRemoteSwiftPackageReference "OpenAI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/MacPaw/OpenAI.git";
@@ -462,6 +474,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E42474122A81118800AF9203 /* CommonMarkAttributedString */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E42474112A81118800AF9203 /* XCRemoteSwiftPackageReference "CommonMarkAttributedString" */;
+			productName = CommonMarkAttributedString;
+		};
 		E47527412A7F6ECC00FF5716 /* OpenAI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E47527402A7F6ECC00FF5716 /* XCRemoteSwiftPackageReference "OpenAI" */;
