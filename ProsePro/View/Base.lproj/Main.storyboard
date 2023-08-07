@@ -199,8 +199,16 @@
                             <outlet property="delegate" destination="nhv-Xm-Zaq" id="YuQ-oP-OWc"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Browse" id="V8T-NT-nUb"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Browse" id="V8T-NT-nUb">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="checkmark.circle" catalog="system" id="mjx-Zx-PLF">
+                            <connections>
+                                <action selector="didTapSelect:" destination="nhv-Xm-Zaq" id="8kq-Ez-If7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="selectionButton" destination="mjx-Zx-PLF" id="kKv-nV-bbG"/>
                         <segue destination="B7B-Ov-g6v" kind="show" identifier="goToEdit" id="rlC-ay-Uty"/>
                     </connections>
                 </tableViewController>
@@ -540,6 +548,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="checkmark.circle" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -14,7 +14,11 @@ class BrowseViewController: UITableViewController {
     let realm = try! Realm()
     
     var cardArray : Results<Card>?
+    
+    var isEditingMode = false
 
+    @IBOutlet var selectionButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +27,11 @@ class BrowseViewController: UITableViewController {
         
         // Set the separatorInset to .zero
         tableView.separatorInset = .zero
+        
+        
+        tableView.allowsSelectionDuringEditing = true
+        tableView.allowsMultipleSelectionDuringEditing = true
+
         
         loadCard()
     }
@@ -57,15 +66,77 @@ class BrowseViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // Return the number of rows in the section.
+        // This should be the count of your data array.
+        // For example: return dataArray.count
+        return cardArray?.count ?? 0
+    }
+    
+    
+    //selection
+    
+    @IBAction func didTapSelect(_ sender: UIBarButtonItem) {
+        
+        isEditingMode.toggle()
+        tableView.setEditing(isEditingMode, animated: true)
+        
+        
+        if isEditingMode {
+            
+            navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Select All", style: .plain, target: self, action: #selector(didTapSelectAll))
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(didTapSelect))
+        } else {
+            navigationItem.leftBarButtonItem = nil
+            let selectImage = UIImage(systemName: "checkmark.circle")
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: selectImage, style: .plain, target: self, action: #selector(didTapSelect))
+            navigationItem.title = "Browse"
+        }
+        
+        
+    }
+    
+    @objc func didTapSelectAll() {
+        for row in 0..<tableView.numberOfRows(inSection: 0) {
+            tableView.selectRow(at: IndexPath(row: row, section: 0), animated: false, scrollPosition: .none)
+        }
+        
+        updateNavBar()
+    }
+    
+
+    // A helper method to update the navigation bar
+    func updateNavBar() {
+        let selectedRowsCount = tableView.indexPathsForSelectedRows?.count ?? 0
+        let totalRowsCount = tableView.numberOfRows(inSection: 0)
+        
+        // Format a string to show the count of selected rows and total rows
+        let navBarTitle = "\(selectedRowsCount)/\(totalRowsCount)"
+        
+        // Set the navigation bar title
+        navigationItem.title = navBarTitle
+    }
+
+    
+    
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        if tableView.isEditing {
+            updateNavBar()
+        }
+    }
+
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if !tableView.isEditing {
+            performSegue(withIdentifier: "goToEdit", sender: self)
+        } else {
+            
+            updateNavBar()
+        }
         
-        
-        performSegue(withIdentifier: "goToEdit", sender: self)
-        
-
     }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! EditViewController
@@ -76,12 +147,7 @@ class BrowseViewController: UITableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // Return the number of rows in the section.
-        // This should be the count of your data array.
-        // For example: return dataArray.count
-        return cardArray?.count ?? 0
-    }
+    
     
     func loadCard() {
         
