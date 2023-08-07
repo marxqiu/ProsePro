@@ -6,12 +6,12 @@
 //
 
 import UIKit
-import RealmSwift
+
 
 class EditViewController: UIViewController {
 
     
-    let realm = try! Realm()
+    let cardManager = CardManager()
     
     @IBOutlet var frontTextField: UITextView!
     @IBOutlet var contextTextField: UITextView!
@@ -41,11 +41,14 @@ class EditViewController: UIViewController {
     
 
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
-        try! realm.write {
-            selectedCard?.front = frontTextField.text
-            selectedCard?.context = contextTextField.text
-            selectedCard?.note = noteTextField.text
+        do {
+            if let card = selectedCard{
+                try cardManager.editCard(card, frontTextField.text, contextTextField.text, noteTextField.text)
+            }
+        } catch {
+            print("Fail to edit the card: \(error)")
         }
+        
         
         // Pop the current view controller off the navigation stack
         self.navigationController?.popViewController(animated: true)

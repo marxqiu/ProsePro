@@ -14,6 +14,8 @@ class Card: Object {
     @Persisted var context: String = ""
     @Persisted var note: String = ""
     @Persisted var dateCreated: Date = Date()
+    @Persisted var recallTask: String = ""
+    
     
     
     convenience init(front: String, context: String, note: String) {

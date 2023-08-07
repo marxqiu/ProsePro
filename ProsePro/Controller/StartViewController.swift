@@ -11,8 +11,7 @@ import RealmSwift
 
 class StartViewController: UIViewController {
     
-    // Open the local-only default realm
-    let realm = try! Realm()
+    let cardManager = CardManager()
 
     @IBOutlet var frontTextField: UITextView!
     
@@ -27,24 +26,24 @@ class StartViewController: UIViewController {
     }
 
     @IBAction func addButtonPressed(_ sender: UIButton) {
-        
-        let newCard = Card(front: frontTextField.text, context: contextTextField.text, note: noteTextField.text)
-        
-        
-    
-        do {
-            try realm.write {
-                realm.add(newCard)
-                print("add")
+        Task {
+            do {
+                try await self.cardManager.addCard(frontTextField.text, contextTextField.text, noteTextField.text)
+                refresh()
+            } catch {
+                print("Error adding new card, \(error)")
             }
-        } catch {
-            print("Error adding new card, \(error)")
         }
-        
+    }
+
+
+
+
+    
+    func refresh(){
         frontTextField.text = ""
         contextTextField.text = ""
         noteTextField.text = ""
-
     }
     
 }

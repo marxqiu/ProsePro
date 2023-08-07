@@ -25,13 +25,15 @@ class ChatGPT {
             return result
         } catch {
             print("Failed to get the response: \(error)")
-            return nil
+            
         }
+        
+        return nil
         
     }
     
     
-    func learnToRecall(_ front: String, in context: String) async -> String?{
+    func generateRecallTask(_ front: String, in context: String) async -> String?{
         let instruction: String = "Use it in a COMPLETELY DIFFERENT context in about 30 words"
         let chatResult = await self.chat(front, in : context, with: instruction)
         

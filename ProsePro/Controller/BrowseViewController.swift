@@ -11,7 +11,7 @@ import RealmSwift
 
 class BrowseViewController: UITableViewController {
     
-    let realm = try! Realm()
+
     
     var cardArray : Results<Card>?
     
@@ -184,7 +184,7 @@ class BrowseViewController: UITableViewController {
     
     func loadCard() {
         
-        cardArray = realm.objects(Card.self)
+        cardArray = cardManager.loadCards()
         
         tableView.reloadData()
     }

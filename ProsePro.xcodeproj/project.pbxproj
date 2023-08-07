@@ -109,9 +109,9 @@
 			isa = PBXGroup;
 			children = (
 				E411DCF82A7C988400529F4D /* StartViewController.swift */,
-				E411DD0D2A7CA87A00529F4D /* LearnViewController.swift */,
 				E411DD0F2A7CA92500529F4D /* BrowseViewController.swift */,
 				E49EE6F42A7F4EAF002F83D3 /* EditViewController.swift */,
+				E411DD0D2A7CA87A00529F4D /* LearnViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -120,9 +120,9 @@
 			isa = PBXGroup;
 			children = (
 				E49EE6EF2A7F3D86002F83D3 /* Card.swift */,
+				E4DA4BDB2A80AFEF00390D66 /* CardManager.swift */,
 				E47527432A7F73D100FF5716 /* ChatGPT.swift */,
 				E47527472A7F759800FF5716 /* Config.swift */,
-				E4DA4BDB2A80AFEF00390D66 /* CardManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

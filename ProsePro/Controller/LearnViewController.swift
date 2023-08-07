@@ -52,12 +52,15 @@ class LearnViewController: UIViewController {
         contextLabel.isHidden = true
         nextButton.isHidden = true
         
-        print(cardArray![index].front)
         
-        Task.init {
-            let gptResult = await chatGPT.learnToRecall(cardArray![index].front, in: cardArray![index].context)
-            gptTextField.text = gptResult
-        }
+//        Task.init {
+//            let gptResult = await chatGPT.learnToRecall(cardArray![index].front, in: cardArray![index].context)
+//            gptTextField.text = gptResult
+//            contextTextField.text = cardArray![index].context
+//            noteTextField.text = cardArray![index].note
+//        }
+        
+        
         
         
 
