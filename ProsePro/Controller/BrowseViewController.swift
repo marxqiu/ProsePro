@@ -21,6 +21,8 @@ class BrowseViewController: UITableViewController {
 
     @IBOutlet var selectionButton: UIBarButtonItem!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,10 +36,8 @@ class BrowseViewController: UITableViewController {
         tableView.allowsSelectionDuringEditing = true
         tableView.allowsMultipleSelectionDuringEditing = true
         
-        
-
-        
         loadCard()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

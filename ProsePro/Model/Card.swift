@@ -14,8 +14,7 @@ class Card: Object {
     @Persisted var context: String = ""
     @Persisted var note: String = ""
     @Persisted var dateCreated: Date = Date()
-    @Persisted var recallTask: String = ""
-    
+    @Persisted var tasks = List<CardTask>()
     
     
     convenience init(front: String, context: String, note: String) {
@@ -25,3 +24,38 @@ class Card: Object {
         self.note = note
     }
 }
+
+
+class CardTask: Object {
+    @Persisted var taskType : TaskType
+    @Persisted var text: String = ""
+    @Persisted var nextDateToReview: Date = Date()
+
+    convenience init(taskType: TaskType, text: String){
+        self.init()
+        self.taskType = taskType
+        self.text = text
+    }
+}
+
+enum InterfaceType: String {
+    case basic = "Basic"
+    case typeIn = "TypeIn"
+}
+
+
+enum TaskType: String, PersistableEnum, CaseIterable {
+    case recallInSentence = "recallInSentence"
+    case recallByDefinition = "RecallByDefinition"
+    
+    var interfaceType: InterfaceType {
+        switch self {
+        case .recallInSentence:
+            return .basic
+        case .recallByDefinition:
+            return .typeIn
+        }
+    }
+}
+
+

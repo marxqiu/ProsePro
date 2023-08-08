@@ -9,28 +9,38 @@ import Foundation
 import RealmSwift
 
 class CardManager {
-    let realm : Realm
+    
     let chatGPT : ChatGPT
     
     init() {
-        self.realm = try! Realm()
+        
         self.chatGPT = ChatGPT()
     }
 
     
     func deleteCards(_ cards: [Card]) throws {
+        let realm = try! Realm()
         try realm.write {
             realm.delete(cards)
         }
     }
     
     @MainActor
-    func loadRecallTaskInBackground(@ThreadSafe card: Card?, front: String, context: String) async {
-        if let recallTask = await chatGPT.generateRecallTask(front, in: context) {
+    func loadTaskInBackground(@ThreadSafe card: Card?, front: String, context: String, taskType: TaskType) async {
+        
+        var recallTask:String?
+        switch taskType {
+            case .recallInSentence:
+                recallTask = await chatGPT.generateRecallInSentenceTask(front, in: context)
+            case .recallByDefinition:
+                recallTask = await chatGPT.generateRecallByDefinitionTask(front, in: context)
+        }
+        if let recallTask = recallTask {
             print(recallTask)
             let realm = try! await Realm()
+            let cardTask = CardTask(taskType: taskType, text: recallTask)
             try! realm.write {
-                card?.recallTask = recallTask
+                card?.tasks.append(cardTask)
             }
         }
         print("finish recall")
@@ -38,7 +48,7 @@ class CardManager {
     }
     
     @MainActor
-    func addCard(_ front: String, _ context: String, _ note: String) async {
+    func addCard(_ front: String, _ context: String, _ note: String, _ taskTypeArray: [TaskType]) async {
         let realm = try! await Realm()
         let newCard = Card(front: front, context: context, note: note)
             
@@ -48,14 +58,17 @@ class CardManager {
             realm.add(newCard)
         }
         
-        await loadRecallTaskInBackground(card: newCard, front: front, context: context)
+        for taskType in taskTypeArray {
+            await loadTaskInBackground(card: newCard, front: front, context: context, taskType: taskType)
+        }
+        
         
     }
     
     
-
     
     func editCard(_ selectedCard: Card, _ front: String, _ context: String, _ note: String) throws {
+        let realm = try! Realm()
         try realm.write {
             selectedCard.front = front
             selectedCard.context = context
@@ -64,6 +77,7 @@ class CardManager {
     }
     
     func loadCards() -> Results<Card>{
+        let realm = try! Realm()
         return realm.objects(Card.self)
     }
     
