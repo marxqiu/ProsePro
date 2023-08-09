@@ -28,17 +28,19 @@ class CardManager {
     @MainActor
     func loadTaskInBackground(@ThreadSafe card: Card?, front: String, context: String, taskType: TaskType) async {
         
-        var recallTask:String?
+        var taskText:String?
         switch taskType {
-            case .recallInSentence:
-                recallTask = await chatGPT.generateRecallInSentenceTask(front, in: context)
-            case .recallByDefinition:
-                recallTask = await chatGPT.generateRecallByDefinitionTask(front, in: context)
+        case .recallInSentence:
+            taskText = await chatGPT.generateRecallInSentenceTask(front, in: context)
+        case .recallByDefinition:
+            taskText = await chatGPT.generateRecallByDefinitionTask(front, in: context)
+        case .GRETextCompletion:
+            taskText = await chatGPT.generateGRETextCompletionTask(front, in: context)
         }
-        if let recallTask = recallTask {
-            print(recallTask)
+        if let taskText = taskText {
+            print(taskText)
             let realm = try! await Realm()
-            let cardTask = CardTask(taskType: taskType, text: recallTask)
+            let cardTask = CardTask(taskType: taskType, text: taskText)
             try! realm.write {
                 card?.tasks.append(cardTask)
             }

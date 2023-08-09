@@ -33,17 +33,20 @@ class CardViewController: BaseViewController {
         separatorLine.isHidden = true
         nextButton.isHidden = true
         
-        do {
-            let commonmark = scheduledTask?.task.text
-            let attributes: [NSAttributedString.Key: Any] = [
-                .font: UIFont.systemFont(ofSize: 14.0)
-            ]
-
-            let attributedString = try NSAttributedString(commonmark: commonmark!, attributes: attributes)
-            gptTextField.attributedText = attributedString
-        } catch {
-            print("Failed to convert commonmark to attributed string: \(error)")
-        }
+        
+        
+//        do {
+//            let commonmark = scheduledTask?.task.textToDisplay
+//            let attributes: [NSAttributedString.Key: Any] = [
+//                .font: UIFont.systemFont(ofSize: 14.0)
+//            ]
+//
+//            let attributedString = try NSAttributedString(commonmark: commonmark!, attributes: attributes)
+//            gptTextField.attributedText = attributedString
+//        } catch {
+//            print("Failed to convert commonmark to attributed string: \(error)")
+//        }
+        gptTextField.text = scheduledTask?.task.textToDisplay
         
         numLeftLabel.text = "\(scheduler.getCurrentIndex())/\(scheduler.totalTasksToReview())"
     }

@@ -22,6 +22,7 @@
 		E42474192A8208AF00AF9203 /* CardScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42474182A8208AF00AF9203 /* CardScheduler.swift */; };
 		E424741B2A82349000AF9203 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E424741A2A82349000AF9203 /* BaseViewController.swift */; };
 		E424741D2A82364200AF9203 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E424741C2A82364200AF9203 /* CardViewController.swift */; };
+		E424741F2A83B33E00AF9203 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E424741E2A83B33E00AF9203 /* Parser.swift */; };
 		E47527422A7F6ECC00FF5716 /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = E47527412A7F6ECC00FF5716 /* OpenAI */; };
 		E47527442A7F73D100FF5716 /* ChatGPT.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47527432A7F73D100FF5716 /* ChatGPT.swift */; };
 		E47527482A7F759800FF5716 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47527472A7F759800FF5716 /* Config.swift */; };
@@ -51,6 +52,7 @@
 		E42474182A8208AF00AF9203 /* CardScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardScheduler.swift; sourceTree = "<group>"; };
 		E424741A2A82349000AF9203 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		E424741C2A82364200AF9203 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
+		E424741E2A83B33E00AF9203 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		E47527432A7F73D100FF5716 /* ChatGPT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPT.swift; sourceTree = "<group>"; };
 		E47527472A7F759800FF5716 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		E49EE6EF2A7F3D86002F83D3 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				E47527432A7F73D100FF5716 /* ChatGPT.swift */,
 				E47527472A7F759800FF5716 /* Config.swift */,
 				E42474182A8208AF00AF9203 /* CardScheduler.swift */,
+				E424741E2A83B33E00AF9203 /* Parser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				E47527442A7F73D100FF5716 /* ChatGPT.swift in Sources */,
 				E42474152A81F1B900AF9203 /* TypeInCardViewController.swift in Sources */,
 				E42474192A8208AF00AF9203 /* CardScheduler.swift in Sources */,
+				E424741F2A83B33E00AF9203 /* Parser.swift in Sources */,
 				E424741B2A82349000AF9203 /* BaseViewController.swift in Sources */,
 				E411DCFF2A7C988400529F4D /* ProsePro.xcdatamodeld in Sources */,
 				E49EE6F52A7F4EAF002F83D3 /* EditViewController.swift in Sources */,

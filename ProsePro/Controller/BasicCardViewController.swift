@@ -36,7 +36,6 @@ class BasicCardViewController: CardViewController {
         loadCard()
         
         
-        
     }
     
     @objc func screenTapped() {

@@ -28,14 +28,27 @@ class Card: Object {
 
 class CardTask: Object {
     @Persisted var taskType : TaskType
+    //JSON text
     @Persisted var text: String = ""
+    @Persisted var textToDisplay: String = ""
     @Persisted var nextDateToReview: Date = Date()
 
     convenience init(taskType: TaskType, text: String){
         self.init()
         self.taskType = taskType
         self.text = text
+        
+        switch taskType {
+        case .GRETextCompletion:
+            self.textToDisplay = parseGRETextCompletion(text)
+        case .recallInSentence:
+            self.textToDisplay = parseRecallInSentence(text)
+        case .recallByDefinition:
+            self.textToDisplay = parseRecallByDefinition(text)
+            
+        }
     }
+    
 }
 
 enum InterfaceType: String {
@@ -45,8 +58,9 @@ enum InterfaceType: String {
 
 
 enum TaskType: String, PersistableEnum, CaseIterable {
-    case recallInSentence = "recallInSentence"
-    case recallByDefinition = "RecallByDefinition"
+    case recallInSentence = "Recall In Sentence"
+    case recallByDefinition = "Recall By Definition"
+    case GRETextCompletion = "GRETextCompletion"
     
     var interfaceType: InterfaceType {
         switch self {
@@ -54,7 +68,10 @@ enum TaskType: String, PersistableEnum, CaseIterable {
             return .basic
         case .recallByDefinition:
             return .typeIn
+        case .GRETextCompletion:
+            return .typeIn
         }
+        
     }
 }
 
