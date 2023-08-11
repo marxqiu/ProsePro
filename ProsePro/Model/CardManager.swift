@@ -7,6 +7,7 @@
 
 import Foundation
 import RealmSwift
+import SpacedRepetitionScheduler
 
 class CardManager {
     
@@ -76,6 +77,38 @@ class CardManager {
             selectedCard.context = context
             selectedCard.note = note
         }
+    }
+    
+    func editTask(_ selectedTask: CardTask, _ schedulingMetadata: PromptSchedulingMetadata?) throws {
+        var mode : String
+        var mode_step : Int = 0
+        
+        
+        
+        if let schedulingMetadata = schedulingMetadata {
+            switch schedulingMetadata.mode {
+            case .learning(let step):
+                mode = "learning"
+                mode_step = step
+            case .review:
+                mode = "review"
+            }
+            
+            let realm = try! Realm()
+            try realm.write {
+                selectedTask.schedulingMetadata?.mode = mode
+                selectedTask.schedulingMetadata?.step = mode_step
+                selectedTask.schedulingMetadata?.reviewCount = schedulingMetadata.reviewCount
+                selectedTask.schedulingMetadata?.lapseCount = schedulingMetadata.lapseCount
+                selectedTask.schedulingMetadata?.reviewSpacingFactor = schedulingMetadata.reviewSpacingFactor
+                selectedTask.schedulingMetadata?.interval = schedulingMetadata.interval
+                selectedTask.priorReviewTime = Date().timeIntervalSinceReferenceDate
+                selectedTask.nextDateToReview = Date().addingTimeInterval(schedulingMetadata.interval)
+            }
+            
+        }
+        
+        
     }
     
     func loadCards() -> Results<Card>{

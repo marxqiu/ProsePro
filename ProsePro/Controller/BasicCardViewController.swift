@@ -24,7 +24,7 @@ class BasicCardViewController: CardViewController {
     @IBOutlet var contextLabel: UILabel!
     
     
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +48,11 @@ class BasicCardViewController: CardViewController {
             contextLabel.isHidden = false
             
             
-            nextButton.isHidden = false
+            againButton.isHidden = false
+            hardButton.isHidden = false
+            goodButton.isHidden = false
+            easyButton.isHidden = false
+            
             numLeftView.isHidden = true
             
             
@@ -56,6 +60,9 @@ class BasicCardViewController: CardViewController {
         }
         
     }
+    
+    
+
     
 
 

@@ -33,6 +33,7 @@
 		E49EE6F52A7F4EAF002F83D3 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49EE6F42A7F4EAF002F83D3 /* EditViewController.swift */; };
 		E4DA4BDC2A80AFEF00390D66 /* CardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA4BDB2A80AFEF00390D66 /* CardManager.swift */; };
 		E4DA4BDE2A80E46E00390D66 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4DA4BDD2A80E46E00390D66 /* Config.plist */; };
+		E4E9BEE42A863408006B30A2 /* SpacedRepetitionScheduler in Frameworks */ = {isa = PBXBuildFile; productRef = E4E9BEE32A863408006B30A2 /* SpacedRepetitionScheduler */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 				E49EE6EE2A7F3CE1002F83D3 /* RealmSwift in Frameworks */,
 				E42474132A81118800AF9203 /* CommonMarkAttributedString in Frameworks */,
 				E47527422A7F6ECC00FF5716 /* OpenAI in Frameworks */,
+				E4E9BEE42A863408006B30A2 /* SpacedRepetitionScheduler in Frameworks */,
 				E49EE6EC2A7F3CE1002F83D3 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,6 +170,7 @@
 				E49EE6ED2A7F3CE1002F83D3 /* RealmSwift */,
 				E47527412A7F6ECC00FF5716 /* OpenAI */,
 				E42474122A81118800AF9203 /* CommonMarkAttributedString */,
+				E4E9BEE32A863408006B30A2 /* SpacedRepetitionScheduler */,
 			);
 			productName = ProsePro;
 			productReference = E411DCF12A7C988400529F4D /* ProsePro.app */;
@@ -201,6 +204,7 @@
 				E49EE6EA2A7F3CE1002F83D3 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				E47527402A7F6ECC00FF5716 /* XCRemoteSwiftPackageReference "OpenAI" */,
 				E42474112A81118800AF9203 /* XCRemoteSwiftPackageReference "CommonMarkAttributedString" */,
+				E4E9BEE22A863408006B30A2 /* XCRemoteSwiftPackageReference "SpacedRepetitionScheduler" */,
 			);
 			productRefGroup = E411DCF22A7C988400529F4D /* Products */;
 			projectDirPath = "";
@@ -495,6 +499,14 @@
 				minimumVersion = 10.42.0;
 			};
 		};
+		E4E9BEE22A863408006B30A2 /* XCRemoteSwiftPackageReference "SpacedRepetitionScheduler" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bdewey/SpacedRepetitionScheduler";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -517,6 +529,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E49EE6EA2A7F3CE1002F83D3 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		E4E9BEE32A863408006B30A2 /* SpacedRepetitionScheduler */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4E9BEE22A863408006B30A2 /* XCRemoteSwiftPackageReference "SpacedRepetitionScheduler" */;
+			productName = SpacedRepetitionScheduler;
 		};
 /* End XCSwiftPackageProductDependency section */
 

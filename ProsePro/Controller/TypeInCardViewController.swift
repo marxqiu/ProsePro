@@ -15,6 +15,7 @@ class TypeInCardViewController: CardViewController, UITextViewDelegate {
     @IBOutlet var feedbackTextField: UITextView!
     @IBOutlet var feedbackLabel: UILabel!
 
+    
     let chatGPT = ChatGPT()
     
     override func viewDidLoad() {
@@ -41,7 +42,11 @@ class TypeInCardViewController: CardViewController, UITextViewDelegate {
             
             
             
-            nextButton.isHidden = false
+            againButton.isHidden = false
+            hardButton.isHidden = false
+            goodButton.isHidden = false
+            easyButton.isHidden = false
+            
             numLeftView.isHidden = true
             
             
@@ -50,6 +55,7 @@ class TypeInCardViewController: CardViewController, UITextViewDelegate {
         }
         return true
     }
+    
     
     
     override func loadCard(){

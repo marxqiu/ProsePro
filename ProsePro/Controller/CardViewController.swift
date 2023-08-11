@@ -6,13 +6,19 @@
 //
 
 import UIKit
+import SpacedRepetitionScheduler
 
 class CardViewController: BaseViewController {
     var scheduledTask : ScheduledTask?
     
     @IBOutlet var gptTextField: UITextView!
     @IBOutlet var separatorLine: UIView!
-    @IBOutlet var nextButton: UIButton!
+    
+    @IBOutlet var againButton: UIButton!
+    @IBOutlet var hardButton: UIButton!
+    @IBOutlet var goodButton: UIButton!
+    @IBOutlet var easyButton: UIButton!
+    
     @IBOutlet var numLeftLabel: UILabel!
     @IBOutlet var numLeftView: UIView!
     
@@ -23,15 +29,25 @@ class CardViewController: BaseViewController {
         loadCard()
     }
     
-    @IBAction func nextButtonPressed(_ sender: UIButton) {
-        scheduler.increaseIndex()
+    
+    @IBAction func buttonPressed(_ sender: UIButton) {
+        
+        if let task = scheduledTask?.task{
+            scheduler.updateMetadata(of:task, sender.tag)
+        }
+        
+        scheduler.dequeScheduledTask()
         loadNextView()
+        
     }
     
     func loadCard() {
         numLeftView.isHidden = false
         separatorLine.isHidden = true
-        nextButton.isHidden = true
+        againButton.isHidden = true
+        hardButton.isHidden = true
+        goodButton.isHidden = true
+        easyButton.isHidden = true
         
         
         
@@ -48,7 +64,7 @@ class CardViewController: BaseViewController {
 //        }
         gptTextField.text = scheduledTask?.task.textToDisplay
         
-        numLeftLabel.text = "\(scheduler.getCurrentIndex())/\(scheduler.totalTasksToReview())"
+        numLeftLabel.text = "\(scheduler.totalTasksToReview())"
     }
     
 }

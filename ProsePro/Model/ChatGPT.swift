@@ -60,7 +60,7 @@ class ChatGPT {
     }
     
     func generateGRETextCompletionTask(_ front: String, in context: String) async -> String?{
-        let instruction: String = "Generate a GRE Text Completion Question with five choices and provide enough information for the learner to infer. Include \(front) as a choice. Output a JSON object with problem, choices, answer and rationale as keys."
+        let instruction: String = "Generate a GRE Text Completion Question with five choices (including \(front) as a choice) and provide information for the learner to infer but don't include the correct choice explicityly. Output a JSON object with problem, choices, answer and rationale as keys."
         let chatResult = await self.chat(with: instruction)
         
         if let chatResult = chatResult {
