@@ -23,6 +23,8 @@
 		E424741B2A82349000AF9203 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E424741A2A82349000AF9203 /* BaseViewController.swift */; };
 		E424741D2A82364200AF9203 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E424741C2A82364200AF9203 /* CardViewController.swift */; };
 		E424741F2A83B33E00AF9203 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E424741E2A83B33E00AF9203 /* Parser.swift */; };
+		E43DBA762A8A2ECD003CC563 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = E43DBA752A8A2ECD003CC563 /* RxCocoa */; };
+		E43DBA782A8A2ECD003CC563 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E43DBA772A8A2ECD003CC563 /* RxSwift */; };
 		E47527422A7F6ECC00FF5716 /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = E47527412A7F6ECC00FF5716 /* OpenAI */; };
 		E47527442A7F73D100FF5716 /* ChatGPT.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47527432A7F73D100FF5716 /* ChatGPT.swift */; };
 		E47527482A7F759800FF5716 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47527472A7F759800FF5716 /* Config.swift */; };
@@ -68,11 +70,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E43DBA762A8A2ECD003CC563 /* RxCocoa in Frameworks */,
 				E49EE6EE2A7F3CE1002F83D3 /* RealmSwift in Frameworks */,
 				E42474132A81118800AF9203 /* CommonMarkAttributedString in Frameworks */,
 				E47527422A7F6ECC00FF5716 /* OpenAI in Frameworks */,
 				E4E9BEE42A863408006B30A2 /* SpacedRepetitionScheduler in Frameworks */,
 				E49EE6EC2A7F3CE1002F83D3 /* Realm in Frameworks */,
+				E43DBA782A8A2ECD003CC563 /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,9 +145,9 @@
 			children = (
 				E49EE6EF2A7F3D86002F83D3 /* Card.swift */,
 				E4DA4BDB2A80AFEF00390D66 /* CardManager.swift */,
+				E42474182A8208AF00AF9203 /* CardScheduler.swift */,
 				E47527432A7F73D100FF5716 /* ChatGPT.swift */,
 				E47527472A7F759800FF5716 /* Config.swift */,
-				E42474182A8208AF00AF9203 /* CardScheduler.swift */,
 				E424741E2A83B33E00AF9203 /* Parser.swift */,
 			);
 			path = Model;
@@ -171,6 +175,8 @@
 				E47527412A7F6ECC00FF5716 /* OpenAI */,
 				E42474122A81118800AF9203 /* CommonMarkAttributedString */,
 				E4E9BEE32A863408006B30A2 /* SpacedRepetitionScheduler */,
+				E43DBA752A8A2ECD003CC563 /* RxCocoa */,
+				E43DBA772A8A2ECD003CC563 /* RxSwift */,
 			);
 			productName = ProsePro;
 			productReference = E411DCF12A7C988400529F4D /* ProsePro.app */;
@@ -205,6 +211,7 @@
 				E47527402A7F6ECC00FF5716 /* XCRemoteSwiftPackageReference "OpenAI" */,
 				E42474112A81118800AF9203 /* XCRemoteSwiftPackageReference "CommonMarkAttributedString" */,
 				E4E9BEE22A863408006B30A2 /* XCRemoteSwiftPackageReference "SpacedRepetitionScheduler" */,
+				E43DBA742A8A2ECD003CC563 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = E411DCF22A7C988400529F4D /* Products */;
 			projectDirPath = "";
@@ -483,6 +490,14 @@
 				minimumVersion = 0.2.0;
 			};
 		};
+		E43DBA742A8A2ECD003CC563 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 6.6.0;
+			};
+		};
 		E47527402A7F6ECC00FF5716 /* XCRemoteSwiftPackageReference "OpenAI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/MacPaw/OpenAI.git";
@@ -514,6 +529,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E42474112A81118800AF9203 /* XCRemoteSwiftPackageReference "CommonMarkAttributedString" */;
 			productName = CommonMarkAttributedString;
+		};
+		E43DBA752A8A2ECD003CC563 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E43DBA742A8A2ECD003CC563 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		E43DBA772A8A2ECD003CC563 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E43DBA742A8A2ECD003CC563 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
 		};
 		E47527412A7F6ECC00FF5716 /* OpenAI */ = {
 			isa = XCSwiftPackageProductDependency;

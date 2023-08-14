@@ -8,10 +8,25 @@
 import Foundation
 import RealmSwift
 import SpacedRepetitionScheduler
+import RxSwift
+
+
 
 class CardManager {
     
     let chatGPT : ChatGPT
+    
+    private let pendingTasksCountSubject = BehaviorSubject<Int>(value: 0)
+    var pendingTasksCountObservable: Observable<Int> {
+            return pendingTasksCountSubject.asObservable()
+        }
+    
+    private var pendingTasksCount: Int = 0 {
+        didSet {
+            pendingTasksCountSubject.onNext(pendingTasksCount)
+        }
+    }
+    
     
     init() {
         
@@ -20,14 +35,24 @@ class CardManager {
 
     
     func deleteCards(_ cards: [Card]) throws {
-        let realm = try! Realm()
+        let realm = try Realm()
+        
+        //batch deletion
         try realm.write {
-            realm.delete(cards)
+            for card in cards {
+                // Delete associated CardTask objects
+                realm.delete(card.tasks)
+                
+                // Delete the Card object
+                realm.delete(card)
+            }
         }
+        
     }
     
     @MainActor
     func loadTaskInBackground(@ThreadSafe card: Card?, front: String, context: String, taskType: TaskType) async {
+        
         
         var taskText:String?
         switch taskType {
@@ -42,16 +67,25 @@ class CardManager {
             print(taskText)
             let realm = try! await Realm()
             let cardTask = CardTask(taskType: taskType, text: taskText)
+            
             try! realm.write {
+//                print("cradTask created")
+//                cardTask.printDetails()
+                
                 card?.tasks.append(cardTask)
             }
         }
-        print("finish recall")
         
+        
+        pendingTasksCount -= 1 // Decrement the pending tasks count when a task is added
+        print("Add")
     }
+    
+
     
     @MainActor
     func addCard(_ front: String, _ context: String, _ note: String, _ taskTypeArray: [TaskType]) async {
+        print("addCard called with \(taskTypeArray.count) task types")
         let realm = try! await Realm()
         let newCard = Card(front: front, context: context, note: note)
             
@@ -60,6 +94,8 @@ class CardManager {
         try! realm.write {
             realm.add(newCard)
         }
+        
+        pendingTasksCount += taskTypeArray.count
         
         for taskType in taskTypeArray {
             await loadTaskInBackground(card: newCard, front: front, context: context, taskType: taskType)
@@ -114,6 +150,11 @@ class CardManager {
     func loadCards() -> Results<Card>{
         let realm = try! Realm()
         return realm.objects(Card.self)
+    }
+    
+    func loadTasks() -> Results<CardTask>{
+        let realm = try! Realm()
+        return realm.objects(CardTask.self)
     }
     
     

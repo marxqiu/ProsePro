@@ -95,7 +95,7 @@ class ChatGPT {
 
             case .failure(let error):
                 // Handle chunk error here
-                print(error)
+                print("Chunk error:\(error)")
             }
         } completion: { error in
             // Handle streaming error here
@@ -116,7 +116,7 @@ class ChatGPT {
 
             case .failure(let error):
                 // Handle chunk error here
-                print(error)
+                print("Chunk error:\(error)")
             }
         } completion: { error in
             // Handle streaming error here

@@ -34,7 +34,7 @@ class TypeInCardViewController: CardViewController, UITextViewDelegate {
         if text == "\n" { // Detect return key
             textView.resignFirstResponder() // Dismiss the keyboard
             
-            chatGPT.checkAnswer(answerTextField.text, (scheduledTask?.task.text)!, feedbackTextField, (scheduledTask?.task.taskType)!)
+            chatGPT.checkAnswer(answerTextField.text, (scheduledTask?.text)!, feedbackTextField, (scheduledTask?.taskType)!)
             
             separatorLine.isHidden = false
             feedbackTextField.isHidden = false

@@ -392,25 +392,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56u-or-QW6">
-                                <rect key="frame" x="166" y="409" width="62" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Start"/>
-                                <connections>
-                                    <action selector="startButtonPressed:" destination="SDk-ou-mzo" eventType="touchUpInside" id="4Av-YV-ZjZ"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tYr-9W-XcQ">
-                                <rect key="frame" x="176" y="342" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="3JK-GA-oov">
+                                <rect key="frame" x="166" y="391.33333333333331" width="61.333333333333343" height="69.666666666666686"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tYr-9W-XcQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="41.333333333333336" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56u-or-QW6">
+                                        <rect key="frame" x="0.0" y="35.333333333333371" width="61.333333333333336" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="tinted" title="Start"/>
+                                        <connections>
+                                            <action selector="startButtonPressed:" destination="SDk-ou-mzo" eventType="touchUpInside" id="4Av-YV-ZjZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PwB-ya-WRy"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstItem="3JK-GA-oov" firstAttribute="centerX" secondItem="irw-B2-XGT" secondAttribute="centerX" id="92W-aq-kNY"/>
+                            <constraint firstItem="3JK-GA-oov" firstAttribute="centerY" secondItem="irw-B2-XGT" secondAttribute="centerY" id="RY9-Ts-Nsp"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Learn" id="ENU-8V-7BG"/>
                     <connections>
@@ -419,7 +426,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="40R-pL-k39" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2131" y="-785"/>
+            <point key="canvasLocation" x="2130.5343511450383" y="-785.21126760563379"/>
         </scene>
         <!--BasicCardViewController-->
         <scene sceneID="5hM-qS-c8Y">
@@ -539,7 +546,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <constraints>
                                                     <constraint firstItem="xGA-3e-FjJ" firstAttribute="top" secondItem="3H1-HF-UQp" secondAttribute="top" id="8VF-qh-Gn2"/>
                                                     <constraint firstItem="xGA-3e-FjJ" firstAttribute="centerX" secondItem="3H1-HF-UQp" secondAttribute="centerX" id="c3g-RG-mIP"/>
@@ -607,7 +614,7 @@
                                                 </constraints>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <constraints>
                                             <constraint firstItem="lca-PU-14S" firstAttribute="top" secondItem="7mU-A3-3tH" secondAttribute="top" id="7kQ-KT-cfS"/>
                                             <constraint firstItem="3H1-HF-UQp" firstAttribute="leading" secondItem="7mU-A3-3tH" secondAttribute="leading" id="BNC-Qu-Xw5"/>
@@ -759,7 +766,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <constraints>
                                                     <constraint firstItem="ypK-OG-H4E" firstAttribute="top" secondItem="0jd-Gs-6yt" secondAttribute="top" id="KEc-SK-rhz"/>
                                                     <constraint firstAttribute="bottom" secondItem="ypK-OG-H4E" secondAttribute="bottom" id="pRf-dR-AEG"/>
@@ -812,7 +819,7 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <constraints>
                                             <constraint firstItem="0jd-Gs-6yt" firstAttribute="top" secondItem="gqk-K8-eqq" secondAttribute="top" id="1dZ-r9-kdU"/>
                                             <constraint firstAttribute="bottom" secondItem="Ihm-5G-XlI" secondAttribute="bottom" id="Cl5-ma-q9q"/>

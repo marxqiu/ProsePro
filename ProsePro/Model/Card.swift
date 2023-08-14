@@ -11,30 +11,14 @@ import SpacedRepetitionScheduler
 
 
 
-class RealmPromptSchedulingMetadata: Object {
-    @Persisted var mode: String //'learning' or 'review'
-    @Persisted var step: Int
-    @Persisted var reviewCount: Int
-    @Persisted var lapseCount: Int
-    @Persisted var interval: TimeInterval
-    @Persisted var reviewSpacingFactor: Double
+class RealmPromptSchedulingMetadata: EmbeddedObject {
+    @Persisted var mode: String = "learning" //'learning' or 'review'
+    @Persisted var step: Int = 0
+    @Persisted var reviewCount: Int = 0
+    @Persisted var lapseCount: Int = 0
+    @Persisted var interval: TimeInterval = 0
+    @Persisted var reviewSpacingFactor: Double = 2.5
     
-    convenience init(
-        mode: String = "learning",
-        step: Int = 0,
-        reviewCount: Int = 0,
-        lapseCount: Int = 0,
-        interval: TimeInterval = 0,
-        reviewSpacingFactor: Double = 2.5
-    ) {
-        self.init()
-        self.mode = mode
-        self.step = step
-        self.reviewCount = reviewCount
-        self.lapseCount = lapseCount
-        self.reviewSpacingFactor = reviewSpacingFactor
-        self.interval = interval
-    }
     
     func update(with schedulingParameters: SchedulingParameters, recallEase: RecallEase, timeIntervalSincePriorReview: TimeInterval) -> PromptSchedulingMetadata{
         let learningMode = (mode == "learning") ? PromptSchedulingMode.learning(step: self.step) : PromptSchedulingMode.review
@@ -58,6 +42,15 @@ class RealmPromptSchedulingMetadata: Object {
         
 
     }
+    
+    func printDetails() {
+        print("mode: \(mode)")
+        print("step: \(step)")
+        print("reviewCount: \(reviewCount)")
+        print("lapseCount: \(lapseCount)")
+        print("interval: \(interval)")
+        print("reviewSpacingFactor: \(reviewSpacingFactor)")
+    }
 }
 
 
@@ -67,7 +60,9 @@ class Card: Object {
     @Persisted var context: String = ""
     @Persisted var note: String = ""
     @Persisted var dateCreated: Date = Date()
-    @Persisted var tasks = List<CardTask>()
+    
+    //A card can have many tasks
+    @Persisted var tasks : List<CardTask>
     
     
     convenience init(front: String, context: String, note: String) {
@@ -84,9 +79,18 @@ class CardTask: Object {
     //JSON text
     @Persisted var text: String = ""
     @Persisted var textToDisplay: String = ""
+    
+    // Embed a single object.
+    // Embedded object properties must be marked optional.
     @Persisted var schedulingMetadata : RealmPromptSchedulingMetadata?
     @Persisted var priorReviewTime: TimeInterval = 0
     @Persisted var nextDateToReview: Date = Date()
+    
+    //Backlink to the card
+    @Persisted(originProperty: "tasks") var parentCards: LinkingObjects<Card>
+    var parentCard: Card? {
+        return self.parentCards.first
+    }
 
     convenience init(taskType: TaskType, text: String){
         self.init()
@@ -103,6 +107,13 @@ class CardTask: Object {
             self.textToDisplay = parseRecallByDefinition(text)
             
         }
+    }
+    
+    func printDetails() {
+        print("text: \(text)")
+        print("priorReviewTime: \(priorReviewTime)")
+        print("nextDateToReview: \(nextDateToReview)")
+        self.schedulingMetadata?.printDetails()
     }
     
 }

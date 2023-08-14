@@ -24,7 +24,7 @@ class LearnViewController: BaseViewController {
         super.viewWillAppear(animated)
 
         // Update your label here
-        let taskLeft = scheduler.tasksLefttoReview()
+        let taskLeft = scheduler.numTasksLeft()
         taskLeftLabel.text = String(taskLeft)
         
     }

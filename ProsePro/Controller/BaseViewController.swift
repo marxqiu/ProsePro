@@ -24,7 +24,7 @@ class BaseViewController: UIViewController {
     }
     
     func loadNextView() {
-        guard let nextScheduledTask = scheduler.nextScheduledTask() else {
+        guard let nextScheduledTask = scheduler.nextTask() else {
             // If nextScheduledTask is nil, call checkCompletion() and return
             showCompletion()
             return
@@ -33,7 +33,7 @@ class BaseViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         var viewController: UIViewController?
 
-        switch nextScheduledTask.task.taskType.interfaceType {
+        switch nextScheduledTask.taskType.interfaceType {
         case .basic:
             if let basicCardViewController = storyboard.instantiateViewController(withIdentifier: "BasicCardViewController") as? BasicCardViewController {
                 basicCardViewController.scheduledTask = nextScheduledTask

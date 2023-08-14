@@ -9,7 +9,7 @@ import UIKit
 import SpacedRepetitionScheduler
 
 class CardViewController: BaseViewController {
-    var scheduledTask : ScheduledTask?
+    var scheduledTask : CardTask?
     
     @IBOutlet var gptTextField: UITextView!
     @IBOutlet var separatorLine: UIView!
@@ -32,11 +32,10 @@ class CardViewController: BaseViewController {
     
     @IBAction func buttonPressed(_ sender: UIButton) {
         
-        if let task = scheduledTask?.task{
+        if let task = scheduledTask{
             scheduler.updateMetadata(of:task, sender.tag)
         }
         
-        scheduler.dequeScheduledTask()
         loadNextView()
         
     }
@@ -62,9 +61,9 @@ class CardViewController: BaseViewController {
 //        } catch {
 //            print("Failed to convert commonmark to attributed string: \(error)")
 //        }
-        gptTextField.text = scheduledTask?.task.textToDisplay
+        gptTextField.text = scheduledTask?.textToDisplay
         
-        numLeftLabel.text = "\(scheduler.totalTasksToReview())"
+        numLeftLabel.text = scheduler.numTasksLeft()
     }
     
 }

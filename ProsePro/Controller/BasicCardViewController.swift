@@ -80,8 +80,8 @@ class BasicCardViewController: CardViewController {
         
         
         
-        contextTextField.text = scheduledTask?.parentCard.context
-        noteTextField.text = scheduledTask?.parentCard.note
+        contextTextField.text = scheduledTask?.parentCard?.context
+        noteTextField.text = scheduledTask?.parentCard?.note
         
     
         
