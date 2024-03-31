@@ -33,15 +33,15 @@ Clone the repository using Git and build the project using Xcode.
 
 After selecting the types of tasks (more on this later) you want to practice with the input and pressing "Add", tailor-made cards will be generated in the background.
 
-![Simulator Screenshot - iPhone 15 - 2024-03-31 at 12.33.46](images/Simulator Screenshot - iPhone 15 - 2024-03-31 at 12.33.46.png)
+![Simulator Screenshot - iPhone 15 - 2024-03-31 at 12.33.46](/images/Simulator%20Screenshot%20-%20iPhone%2015%20-%202024-03-31%20at%2012.33.46.png)
 
 **Learn** functions similarly to Anki, presenting cards with options for answers.
 
-![Simulator Screenshot - iPhone 15 - 2024-03-31 at 12.08.49](images/Simulator Screenshot - iPhone 15 - 2024-03-31 at 12.08.49.png)
+![Simulator Screenshot - iPhone 15 - 2024-03-31 at 12.08.49](/images/Simulator%20Screenshot%20-%20iPhone%2015%20-%202024-03-31%20at%2012.08.49.png)
 
 There's one additional type-in card type that requires your input and it will provide you feedback afterwards.
 
-![Simulator Screenshot - iPhone 15 - 2024-03-31 at 12.09.04](images/Simulator Screenshot - iPhone 15 - 2024-03-31 at 12.09.04.png)
+![Simulator Screenshot - iPhone 15 - 2024-03-31 at 12.09.04](/images/Simulator%20Screenshot%20-%20iPhone%2015%20-%202024-03-31%20at%2012.09.04.png)
 
 
 
