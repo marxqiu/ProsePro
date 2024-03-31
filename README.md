@@ -33,15 +33,15 @@ Clone the repository using Git and build the project using Xcode.
 
 After selecting the types of tasks (more on this later) you want to practice with the input and pressing "Add", tailor-made cards will be generated in the background.
 
-![simulator_screenshot_339D02E2-3E79-4399-BD48-B2C75751755B](/Users/qiuyuchen/Library/Application Support/typora-user-images/simulator_screenshot_339D02E2-3E79-4399-BD48-B2C75751755B.png)
+![Simulator Screenshot - iPhone 15 - 2024-03-31 at 12.33.46](images/Simulator Screenshot - iPhone 15 - 2024-03-31 at 12.33.46.png)
 
 **Learn** functions similarly to Anki, presenting cards with options for answers.
 
-![Simulator Screenshot - iPhone 15 - 2024-03-31 at 12.08.49](/Users/qiuyuchen/Desktop/Simulator Screenshot - iPhone 15 - 2024-03-31 at 12.08.49.png)
+![Simulator Screenshot - iPhone 15 - 2024-03-31 at 12.08.49](images/Simulator Screenshot - iPhone 15 - 2024-03-31 at 12.08.49.png)
 
-There's one additional type-in card type that requires your input when answering and it will provide you feedback afterwards.
+There's one additional type-in card type that requires your input and it will provide you feedback afterwards.
 
-![Simulator Screenshot - iPhone 15 - 2024-03-31 at 12.09.04](/Users/qiuyuchen/Desktop/Simulator Screenshot - iPhone 15 - 2024-03-31 at 12.09.04.png)
+![Simulator Screenshot - iPhone 15 - 2024-03-31 at 12.09.04](images/Simulator Screenshot - iPhone 15 - 2024-03-31 at 12.09.04.png)
 
 
 
@@ -76,8 +76,6 @@ Generate a GRE Text Completion Question with five choices (including \(front) as
 ```
 
 
-
-#### 
 
 #### Translation
 
